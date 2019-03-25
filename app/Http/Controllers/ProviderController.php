@@ -12,8 +12,13 @@ class ProviderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if($request->ajax()){
+            return response()->json([
+                ['id'=>1, 'name'=>'Pikachu']
+            ]);
+        }
         return view('providers.list');
     }
 
@@ -35,7 +40,20 @@ class ProviderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->ajax()){ //almacenando un proveedor
+            $provider = new Provider();
+            $provider->razon_social = $request->input('name');
+            $provider->ruc= $request->input('ruc');
+            $provider->direccion=$request->input('direccion');
+            $provider->telefono=$request->input('telefono');
+            $provider->email=$request->input('email');
+
+            $provider->save();
+
+            return response()->json([ //respuesta http satisfactoria 
+                "message"=>"Proveedor creado correctamente." 
+            ], 200);
+        }
     }
 
     /**
