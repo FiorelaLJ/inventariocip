@@ -51,7 +51,7 @@ class ProviderController extends Controller
 
             return response()->json([ //respuesta http satisfactoria 
                 "message"=>"Proveedor creado correctamente.",
-                "provider" => $provider  
+                "provider" => $provider //key para decir lo que se almaceno  
             ], 200);
         }
     }

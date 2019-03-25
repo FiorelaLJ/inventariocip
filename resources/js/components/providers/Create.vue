@@ -39,6 +39,8 @@
 </template>
 
 <script>
+    // import { bus } from '../event-bus';
+
     export default {
         data(){ //atributos
             return{
@@ -61,6 +63,7 @@
                 .then(function(res){
                     console.log(res)
                     $('#addProvider').modal('hide')
+                    EventBus.$emit('provider-added', res.data.provider)
                 })
                 .catch(function(err){
                     console.log(err) //error
