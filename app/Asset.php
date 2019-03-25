@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace InventarioCIP;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace InventarioCIP\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
