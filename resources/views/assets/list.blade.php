@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <add-asset-btn></add-asset-btn>
-    <assets-component></assets-component>
+    <modal-btn-asset></modal-btn-asset>
+    <list-assets></list-assets>
     <create-form-asset></create-form-asset>
 @endsection

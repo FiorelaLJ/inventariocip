@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <add-provider-btn></add-provider-btn>
-    <providers-component></providers-component>
+    <modal-btn-provider></modal-btn-provider>
+    <list-providers></list-providers>
     <create-form-provider></create-form-provider>
 @endsection

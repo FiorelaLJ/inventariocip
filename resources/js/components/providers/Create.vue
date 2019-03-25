@@ -63,7 +63,8 @@
                 .then(function(res){
                     console.log(res)
                     $('#addProvider').modal('hide')
-                    EventBus.$emit('provider-added', res.data.provider)
+                    console.log(res.data.provider)
+                    // EventBus.$emit('provider-added', res.data.provider)
                 })
                 .catch(function(err){
                     console.log(err) //error

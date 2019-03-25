@@ -12,11 +12,11 @@
                     <form>
                         <div class="form-group">
                             <label>Nombre</label>
-                            <input type="text" class="form-control" placeholder="Ingrese el nombre del bien">
+                            <input type="text" class="form-control" placeholder="Ingrese el nombre del bien" v-model="name">
                         </div>
                         <div class="form-group">
                             <label>Descripcion General</label>
-                            <input type="text" class="form-control" placeholder="Describa el producto">
+                            <input type="text" class="form-control" placeholder="Describa el producto" v-model="descripcion">
                         </div>
                         
                         <button type="submit" class="btn btn-primary">Guardar</button>
@@ -29,7 +29,25 @@
 
 <script>
     export default {
-        
+        data(){
+            return{
+                name: null,
+                descripcion: null
+            }
+        },
+        methods: {
+            saveAsset: function(){
+                axios.post('/assets',{
+                    name: this.name,
+                    descripcion: this.descripcion
+                })
+                .then(function(res){
+                    console.log(res)
+                    $('#addAsset').modal('hide')
+                    console.log(res.data.asset)
+                })
+            }
+        }
     }
 </script>
 
