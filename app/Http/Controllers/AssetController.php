@@ -12,9 +12,14 @@ class AssetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if($request->ajax()){
+            return response()->json([
+                ['id'=>1, 'name'=>'Pikachu']
+            ]);
+        }
+        return view('assets.list');
     }
 
     /**
@@ -35,7 +40,17 @@ class AssetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->ajax()){ //almacenando un proveedor
+            $asset = new Asset();
+            $asset->nombre = $request->input('nombre');
+            $provider->descripcion_general= $request->input('descripcion_general');
+
+            $provider->save();
+
+            return response()->json([ //respuesta http satisfactoria 
+                "message"=>"Bien creado correctamente." 
+            ], 200);
+        }
     }
 
     /**

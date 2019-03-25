@@ -42,7 +42,7 @@ class ProviderController extends Controller
     {
         if($request->ajax()){ //almacenando un proveedor
             $provider = new Provider();
-            $provider->razon_social = $request->input('name');
+            $provider->razon_social = $request->input('razon_social');
             $provider->ruc= $request->input('ruc');
             $provider->direccion=$request->input('direccion');
             $provider->telefono=$request->input('telefono');

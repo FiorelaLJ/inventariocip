@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('providers','ProviderController');
+Route::resource('assets','AssetController');
+Route::resource('locations','LocationController');
