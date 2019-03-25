@@ -21,8 +21,10 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('providers-component', require('./components/ProvidersComponent.vue').default);
+Vue.component('providers-component', require('./components/providers/ProvidersComponent.vue').default);
 Vue.component('spinner', require('./components/Spinner.vue').default);
+Vue.component('add-provider-btn', require('./components/providers/AddProviderComponent.vue').default);
+Vue.component('create-form-provider', require('./components/providers/CreateProviderComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
