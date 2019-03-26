@@ -10,7 +10,8 @@ export default {
 
 <style>
     .margin{
-        margin-top: 20px
+        margin-top: 20px;
+        margin-left: 30px
     }
     .btn-primary{
         background-color: #d34848;

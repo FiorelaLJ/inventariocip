@@ -1792,7 +1792,197 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      name: null,
+      descripcion: null,
+      muestra: null,
+      mostrar_eq: false,
+      mostrar_mob: false,
+      mostrar_soft: false,
+      mostrar_inm: false,
+      mostrar_aut: false,
+      mostrar_tex: false
+    };
+  },
+  methods: {
+    saveAsset: function saveAsset() {
+      axios.post('/assets', {
+        name: this.name,
+        descripcion: this.descripcion,
+        muestra: this.muestra
+      }).then(function (res) {
+        console.log(res);
+        $('#addAsset').modal('hide');
+        console.log(res.data.asset);
+      }).catch(function (err) {
+        console.log(err); //error
+      });
+    },
+    mos_equipamiento: function mos_equipamiento() {
+      this.mostrar_eq = true;
+      this.mostrar_mob = false;
+      this.mostrar_soft = false;
+      this.mostrar_inm = false;
+      this.mostrar_aut = false;
+      this.mostrar_tex = false;
+    },
+    mos_mobiliario: function mos_mobiliario() {
+      this.mostrar_mob = true;
+      this.mostrar_eq = false;
+      this.mostrar_soft = false;
+      this.mostrar_inm = false;
+      this.mostrar_aut = false;
+      this.mostrar_tex = false;
+    },
+    mos_software: function mos_software() {
+      this.mostrar_soft = true;
+      this.mostrar_mob = false;
+      this.mostrar_eq = false;
+      this.mostrar_inm = false;
+      this.mostrar_aut = false;
+      this.mostrar_tex = false;
+    },
+    mos_inmueble: function mos_inmueble() {
+      this.mostrar_inm = true;
+      this.mostrar_mob = false;
+      this.mostrar_soft = false;
+      this.mostrar_eq = false;
+      this.mostrar_aut = false;
+      this.mostrar_tex = false;
+    },
+    mos_automovil: function mos_automovil() {
+      this.mostrar_aut = true;
+      this.mostrar_mob = false;
+      this.mostrar_soft = false;
+      this.mostrar_inm = false;
+      this.mostrar_eq = false;
+      this.mostrar_tex = false;
+    },
+    mos_texto: function mos_texto() {
+      this.mostrar_tex = true;
+      this.mostrar_mob = false;
+      this.mostrar_soft = false;
+      this.mostrar_inm = false;
+      this.mostrar_aut = false;
+      this.mostrar_eq = false;
+    }
+  }
+});
 
 /***/ }),
 
@@ -1932,7 +2122,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         console.log(res);
         $('#addProvider').modal('hide');
-        EventBus.$emit('provider-added', res.data.provider);
+        console.log(res.data.provider); // EventBus.$emit('provider-added', res.data.provider)
       }).catch(function (err) {
         console.log(err); //error
       });
@@ -6484,7 +6674,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.top-space{\n    margin-top: 20px\n}\n", ""]);
+exports.push([module.i, "\n.margin{\n    margin-top: 20px;\n    margin-left: 30px\n}\n.btn-primary{\n    background-color: #d34848;\n    border-color: #ffffff\n}\n", ""]);
 
 // exports
 
@@ -37812,94 +38002,830 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    {
+      staticClass: "modal fade",
+      attrs: { id: "addAsset", role: "dialog", "aria-hidden": "true" }
+    },
+    [
+      _c("div", { staticClass: "modal-dialog", attrs: { role: "document" } }, [
+        _c("div", { staticClass: "modal-content" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "modal-body" }, [
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.saveAsset($event)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Nombre")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.name,
+                        expression: "name"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder: "Ingrese el nombre del bien"
+                    },
+                    domProps: { value: _vm.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.name = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Descripcion General")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.descripcion,
+                        expression: "descripcion"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder: "Describa el producto"
+                    },
+                    domProps: { value: _vm.descripcion },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.descripcion = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Numero de Comprobante")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.nro_comprobante,
+                        expression: "nro_comprobante"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder: "Digite el numero de comprobante"
+                    },
+                    domProps: { value: _vm.nro_comprobante },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.nro_comprobante = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("input", {
+                    attrs: {
+                      type: "Radio",
+                      name: "categoria",
+                      value: "equipamiento",
+                      required: ""
+                    },
+                    on: { click: _vm.mos_equipamiento }
+                  }),
+                  _vm._v("Equipo \n                            "),
+                  _c("input", {
+                    attrs: {
+                      type: "Radio",
+                      name: "categoria",
+                      value: "mobiliario",
+                      required: ""
+                    },
+                    on: { click: _vm.mos_mobiliario }
+                  }),
+                  _vm._v("Mobiliario\n                            "),
+                  _c("input", {
+                    attrs: {
+                      type: "Radio",
+                      name: "categoria",
+                      value: "software",
+                      required: ""
+                    },
+                    on: { click: _vm.mos_software }
+                  }),
+                  _vm._v("Software\n                            "),
+                  _c("input", {
+                    attrs: {
+                      type: "Radio",
+                      name: "categoria",
+                      value: "inmueble",
+                      required: ""
+                    },
+                    on: { click: _vm.mos_inmueble }
+                  }),
+                  _vm._v("Inmueble \n                            "),
+                  _c("input", {
+                    attrs: {
+                      type: "Radio",
+                      name: "categoria",
+                      value: "automovil",
+                      required: ""
+                    },
+                    on: { click: _vm.mos_automovil }
+                  }),
+                  _vm._v("Automovil\n                            "),
+                  _c("input", {
+                    attrs: {
+                      type: "Radio",
+                      name: "categoria",
+                      value: "texto",
+                      required: ""
+                    },
+                    on: { click: _vm.mos_texto }
+                  }),
+                  _vm._v("Texto\n\n                    ")
+                ]),
+                _vm._v(" "),
+                _vm.mostrar_eq
+                  ? _c("div", [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("Marca")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.marca,
+                              expression: "marca"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Marca del equipo"
+                          },
+                          domProps: { value: _vm.marca },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.marca = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("Modelo")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.modelo,
+                              expression: "modelo"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Modelo del equipo"
+                          },
+                          domProps: { value: _vm.modelo },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.modelo = $event.target.value
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.mostrar_mob
+                  ? _c("div", [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("xD")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.marca,
+                              expression: "marca"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Marca del equipo"
+                          },
+                          domProps: { value: _vm.marca },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.marca = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("Modelo")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.modelo,
+                              expression: "modelo"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Modelo del equipo"
+                          },
+                          domProps: { value: _vm.modelo },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.modelo = $event.target.value
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.mostrar_soft
+                  ? _c("div", [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("Marca")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.marca,
+                              expression: "marca"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Marca del equipo"
+                          },
+                          domProps: { value: _vm.marca },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.marca = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("Modelo")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.modelo,
+                              expression: "modelo"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Modelo del equipo"
+                          },
+                          domProps: { value: _vm.modelo },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.modelo = $event.target.value
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.mostrar_inm
+                  ? _c("div", [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("Dirección")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.direccion,
+                              expression: "direccion"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Direccion del Inmueble"
+                          },
+                          domProps: { value: _vm.direccion },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.direccion = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("Numero de Escritura")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.nro_escritura,
+                              expression: "nro_escritura"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Numero de Escritura"
+                          },
+                          domProps: { value: _vm.nro_escritura },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.nro_escritura = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [
+                          _vm._v("Nombre del Propietario segun Escritura")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.nombre_propietario,
+                              expression: "nombre_propietario"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder:
+                              "Nombre del Propietario segun Escritura"
+                          },
+                          domProps: { value: _vm.nombre_propietario },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.nombre_propietario = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("Valor en Libros")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.valor_libros,
+                              expression: "valor_libros"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Valor en Libros"
+                          },
+                          domProps: { value: _vm.valor_libros },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.valor_libros = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("Avaluo Catastral")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.avaluo_catastral,
+                              expression: "avaluo_catastral"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Avaluo Catastral"
+                          },
+                          domProps: { value: _vm.avaluo_catastral },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.avaluo_catastral = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("Depreciación")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.depreciacion,
+                              expression: "depreciacion"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", placeholder: "Depreciacion" },
+                          domProps: { value: _vm.depreciacion },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.depreciacion = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("Valorizacion")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.valorizacion,
+                              expression: "valorizacion"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", placeholder: "Valorizacion" },
+                          domProps: { value: _vm.valorizacion },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.valorizacion = $event.target.value
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.mostrar_aut
+                  ? _c("div", [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("Marca")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.marca,
+                              expression: "marca"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Marca del equipo"
+                          },
+                          domProps: { value: _vm.marca },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.marca = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("Modelo")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.modelo,
+                              expression: "modelo"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Modelo del equipo"
+                          },
+                          domProps: { value: _vm.modelo },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.modelo = $event.target.value
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.mostrar_tex
+                  ? _c("div", [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("Autor")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.autor,
+                              expression: "autor"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Autor del texto"
+                          },
+                          domProps: { value: _vm.autor },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.autor = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", [_vm._v("Titulo")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.titulo,
+                              expression: "titulo"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Titulo del Texto"
+                          },
+                          domProps: { value: _vm.titulo },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.titulo = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(2)
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                  [_vm._v("Guardar")]
+                )
+              ]
+            )
+          ])
+        ])
+      ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: { id: "addAsset", role: "dialog", "aria-hidden": "true" }
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "modal-dialog", attrs: { role: "document" } },
-          [
-            _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
-                _c(
-                  "h5",
-                  {
-                    staticClass: "modal-title",
-                    attrs: { id: "exampleModalLabel" }
-                  },
-                  [_vm._v("Agregar Bien")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "close",
-                    attrs: {
-                      type: "button",
-                      "data-dismiss": "modal",
-                      "aria-label": "Close"
-                    }
-                  },
-                  [
-                    _c("span", { attrs: { "aria-hidden": "true" } }, [
-                      _vm._v("×")
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _c("form", [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("Nombre")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        placeholder: "Ingrese el nombre del bien"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("Descripcion General")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        placeholder: "Describa el producto"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "submit" }
-                    },
-                    [_vm._v("Guardar")]
-                  )
-                ])
-              ])
-            ])
-          ]
-        )
-      ]
-    )
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Agregar Bien")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("input", {
+        attrs: {
+          type: "Radio",
+          name: "comprobante",
+          value: "factura",
+          required: ""
+        }
+      }),
+      _vm._v("Factura\n                        "),
+      _c("input", {
+        attrs: {
+          type: "Radio",
+          name: "comprobante",
+          value: "boleta",
+          required: ""
+        }
+      }),
+      _vm._v("Boleta\n                        "),
+      _c("input", {
+        attrs: {
+          type: "Radio",
+          name: "comprobante",
+          value: "nota de venta",
+          required: ""
+        }
+      }),
+      _vm._v("Nota de Venta \n                        "),
+      _c("input", {
+        attrs: {
+          type: "Radio",
+          name: "comprobante",
+          value: "documento",
+          required: ""
+        }
+      }),
+      _vm._v("Documento\n                        "),
+      _c("input", {
+        attrs: {
+          type: "Radio",
+          name: "comprobante",
+          value: "otro",
+          required: ""
+        }
+      }),
+      _vm._v("Otro\n                    ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("input", {
+        attrs: {
+          type: "Radio",
+          name: "tipo_libro",
+          value: "revista",
+          required: ""
+        }
+      }),
+      _vm._v("Revista \n                            "),
+      _c("input", {
+        attrs: {
+          type: "Radio",
+          name: "tipo_libro",
+          value: "tesis",
+          required: ""
+        }
+      }),
+      _vm._v("Tesis\n                            "),
+      _c("input", {
+        attrs: {
+          type: "Radio",
+          name: "tipo_libro",
+          value: "libro",
+          required: ""
+        }
+      }),
+      _vm._v("Libro\n                            "),
+      _c("input", {
+        attrs: {
+          type: "Radio",
+          name: "tipo_libro",
+          value: "otro",
+          required: ""
+        }
+      }),
+      _vm._v("Otro\n                        ")
+    ])
   }
 ]
 render._withStripped = true
@@ -37951,17 +38877,6 @@ var render = function() {
               }
             },
             [
-              _c("img", {
-                staticClass: "card-img-top rounded-circle mx-auto d-block",
-                staticStyle: {
-                  height: "100px",
-                  width: "100px",
-                  "background-color": "#efefef",
-                  margin: "20px"
-                },
-                attrs: { src: "images/", alt: "" }
-              }),
-              _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
                 _c("h5", { staticClass: "card-title" }, [
                   _vm._v(_vm._s(asset.name))
@@ -38015,7 +38930,7 @@ var render = function() {
   return _c(
     "button",
     {
-      staticClass: "btn btn-primary top-space",
+      staticClass: "btn btn-primary margin",
       attrs: {
         type: "button",
         "data-toggle": "modal",
