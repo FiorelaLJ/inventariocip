@@ -115,7 +115,13 @@
                             </div>
                         </div>
                         
-                        <div v-if="mostrar_tex">
+                        <div v-if="mostrar_tex">                            
+                            <div class="form-group">
+                                <input type="Radio" name="tipo_libro" value="revista" required >Revista 
+                                <input type="Radio" name="tipo_libro" value="tesis" required>Tesis
+                                <input type="Radio" name="tipo_libro" value="libro" required>Libro
+                                <input type="Radio" name="tipo_libro" value="otro" required>Otro
+                            </div>
                             <div class="form-group">
                                 <label>Autor</label> 
                                 <input type="text" class="form-control" placeholder="Autor del texto" v-model="autor">
@@ -123,12 +129,6 @@
                             <div class="form-group">
                                 <label>Titulo</label> 
                                 <input type="text" class="form-control" placeholder="Titulo del Texto" v-model="titulo">
-                            </div>
-                            <div class="form-group">
-                                <input type="Radio" name="tipo_libro" value="revista" required >Revista 
-                                <input type="Radio" name="tipo_libro" value="tesis" required>Tesis
-                                <input type="Radio" name="tipo_libro" value="libro" required>Libro
-                                <input type="Radio" name="tipo_libro" value="otro" required>Otro
                             </div>
                         </div>
 
