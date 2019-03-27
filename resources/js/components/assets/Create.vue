@@ -11,6 +11,7 @@
                 <div class="modal-body">
                     <form @submit.prevent="saveAsset">
                         <div class="form-group">
+                            <label for="">Categoria del Bien</label>
                                 <input type="Radio" name="categoria" value="equipamiento" v-on:click="mos_equipamiento" required >Equipo 
                                 <input type="Radio" name="categoria" value="mobiliario" v-on:click="mos_mobiliario" required>Mobiliario
                                 <input type="Radio" name="categoria" value="software" v-on:click="mos_software" required>Software
@@ -27,6 +28,7 @@
                             <input type="text" class="form-control" data-provide="datepicker"  v-model="fecha_adquision">
                         </div> -->
                         <div class="form-group">
+                            <label for="">Tipo de Adquisicion </label>
                             <input type="Radio" name="tipo_adquisicion" value="compra" v-on:click="mos_compra" required>Compra
                             <input type="Radio" name="tipo_adquisicion" value="donacion" v-on:click="mos_donacion" required>Donacion
                             <input type="Radio" name="tipo_adquisicion" value="traspaso" v-on:click="mos_donacion"  required>Traspaso 
@@ -34,6 +36,7 @@
                         </div>
                         <div v-if="mostrar_com">
                             <div class="form-group">
+                                <label for="">Tipo de Comprobante </label>
                                 <input type="Radio" name="comprobante" value="factura" required>Factura
                                 <input type="Radio" name="comprobante" value="boleta" required>Boleta
                                 <input type="Radio" name="comprobante" value="nota de venta" required>Nota de Venta 
@@ -62,21 +65,23 @@
                             <input type="text" class="form-control" placeholder="Ingrese el total de adquisiciones" v-model="total_adquisiciones">
                         </div>
 
+                        
+                        <div class="form-group" v-if="mostrar_eq||mostrar_aut">
+                            <label>Marca</label> 
+                            <input type="text" class="form-control" placeholder="Marca del bien" v-model="marca">
+                        </div>
+                        <div class="form-group" v-if="mostrar_eq||mostrar_aut">
+                            <label>Modelo</label> 
+                            <input type="text" class="form-control" placeholder="Modelo del bien" v-model="modelo">
+                        </div>
+                        <div class="form-group" v-if="mostrar_eq||mostrar_aut||mostrar_soft">
+                            <label>Numero de Serie</label> 
+                            <input type="text" class="form-control" placeholder="Numero de Serie del bien" v-model="nro_serie">
+                        </div>
+
                         <!-- EQUIPOS -->
                         
                         <div v-if="mostrar_eq">
-                            <div class="form-group">
-                                <label>Marca</label> 
-                                <input type="text" class="form-control" placeholder="Marca del equipo" v-model="marca">
-                            </div>
-                            <div class="form-group">
-                                <label>Modelo</label> 
-                                <input type="text" class="form-control" placeholder="Modelo del equipo" v-model="modelo">
-                            </div>
-                            <div class="form-group">
-                                <label>Numero de Serie</label> 
-                                <input type="text" class="form-control" placeholder="Numero de Serie del equipo" v-model="nro_serie">
-                            </div>
                             <div class="form-group">
                                 <label>Vida Util</label> 
                                 <input type="text" class="form-control" placeholder="Vida Util del equipo" v-model="vida_util">
@@ -97,51 +102,78 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Disco Duro</label>
-                                    <input type="text" class="form-control" placeholder="Ingrese la cantidad de disco duro y su tipo" v-model="disoc_duro">
+                                    <input type="text" class="form-control" placeholder="Ingrese la cantidad de disco duro y su tipo" v-model="disco_duro">
                                 </div>
                                 <div class="form-group">
                                     <label>Velocidad</label>
                                     <input type="text" class="form-control" placeholder="Ingrese la velocidad" v-model="velocidad">
                                 </div>
                             </div>
-                            <!-- Continuar -->
-                            <div class="form-group">
-                                <label>Color</label> 
-                                <input type="text" class="form-control" placeholder="Color del equipo" v-model="color">
-                            </div>
-                            <div class="form-group">
-                                <label>Material</label> 
-                                <input type="text" class="form-control" placeholder="Material del equipo" v-model="material">
+                            <!-- OTRO EQUIPO -->
+                            <div v-if="mostrar_otro_equipo">
+                                <div class="form-group">
+                                    <label>Nombre del Equipo</label>
+                                    <input type="text" class="form-control" placeholder="Ingrese el tipo de equipo" v-model="otro_equipo">
+                                </div>
+                                <div class="form-group">
+                                    <label>Detalles de Equipo</label>
+                                    <input type="text" class="form-control" placeholder="Ingrese mas detalles sobre el Equipo" v-model="detalles_equipo">
+                                </div>
                             </div>
                         </div>
 
+                        <div class="form-group" v-if="mostrar_eq||mostrar_aut||mostrar_mob">
+                            <label>Color</label> 
+                            <input type="text" class="form-control" placeholder="Color del bien" v-model="color">
+                        </div>
+                        <div class="form-group" v-if="mostrar_eq||mostrar_aut||mostrar_mob">
+                            <label>Material</label> 
+                            <input type="text" class="form-control" placeholder="Material del bien" v-model="material">
+                        </div>
+
+                        <!-- MUEBLES -->
                         <div v-if="mostrar_mob">
                             <div class="form-group">
-                                <label>xD</label> 
-                                <input type="text" class="form-control" placeholder="Marca del equipo" v-model="marca">
-                            </div>
-                            <div class="form-group">
-                                <label>Modelo</label> 
-                                <input type="text" class="form-control" placeholder="Modelo del equipo" v-model="modelo">
+                                <label>Tipo de Mobiliario</label> 
+                                <input type="text" class="form-control" placeholder="Tipo de mobiliario" v-model="tipo_mobiliario">
                             </div>
                         </div>
 
+                        <!-- SOFTWARE -->
                         <div v-if="mostrar_soft">
                             <div class="form-group">
-                                <label>Marca</label> 
-                                <input type="text" class="form-control" placeholder="Marca del equipo" v-model="marca">
+                                <label>Nombre del Programa</label> 
+                                <input type="text" class="form-control" placeholder="Nombre del Programa" v-model="nombre_programa">
+                            </div>
+                            <!-- <div class="form-group">
+                                <label>Fecha de Instalacion</label> 
+                                <input type="text" class="form-control" placeholder="Modelo del equipo" v-model="fecha_instalacion">
+                            </div> -->
+                            <div class="form-group">
+                                <label>Tipo de Software</label> 
+                                <input type="text" class="form-control" placeholder="Tipo de Software" v-model="tipo_software">
                             </div>
                             <div class="form-group">
-                                <label>Modelo</label> 
-                                <input type="text" class="form-control" placeholder="Modelo del equipo" v-model="modelo">
+                                <label>Tipo de Licencia</label> 
+                                <input type="text" class="form-control" placeholder="Tipo de Licencia" v-model="tipo_licencia">
+                            </div>
+                            <div class="form-group">
+                                <label>Total de Instalaciones</label> 
+                                <input type="text" class="form-control" placeholder="Ingrese la cantidad de instalaciones del software" v-model="total_instaladas">
+                            </div>
+                            <div class="form-group">
+                                <label>Version</label> 
+                                <input type="text" class="form-control" placeholder="Version del Software" v-model="version">
+                            </div>
+                            <div class="form-group">
+                                <label>Product Key</label> 
+                                <input type="text" class="form-control" placeholder="Product Key del Software" v-model="product_key">
                             </div>
                         </div>
 
+                        <!-- INMUEBLES -->
                         <div v-if="mostrar_inm">
-                            <div class="form-group">
-                                <label>Dirección</label> 
-                                <input type="text" class="form-control" placeholder="Direccion del Inmueble" v-model="direccion">
-                            </div>
+                            
                             <div class="form-group">
                                 <label>Numero de Escritura</label> 
                                 <input type="text" class="form-control" placeholder="Numero de Escritura" v-model="nro_escritura">
@@ -149,15 +181,15 @@
                             <div class="form-group">
                                 <label>Nombre del Propietario segun Escritura</label> 
                                 <input type="text" class="form-control" placeholder="Nombre del Propietario segun Escritura" v-model="nombre_propietario">
-                            </div>                            
+                            </div>                         
                             <div class="form-group">
                                 <label>Valor en Libros</label> 
                                 <input type="text" class="form-control" placeholder="Valor en Libros" v-model="valor_libros">
-                            </div>
+                            </div> 
                             <div class="form-group">
                                 <label>Avaluo Catastral</label> 
                                 <input type="text" class="form-control" placeholder="Avaluo Catastral" v-model="avaluo_catastral">
-                            </div>                            
+                            </div>                          
                             <div class="form-group">
                                 <label>Depreciación</label> 
                                 <input type="text" class="form-control" placeholder="Depreciacion" v-model="depreciacion">
@@ -166,21 +198,69 @@
                                 <label>Valorizacion</label> 
                                 <input type="text" class="form-control" placeholder="Valorizacion" v-model="valorizacion">
                             </div>
-                        </div>
-
-                        <div v-if="mostrar_aut">
                             <div class="form-group">
-                                <label>Marca</label> 
-                                <input type="text" class="form-control" placeholder="Marca del equipo" v-model="marca">
+                                <label for="">Arrendado</label>
+                                <input type="Radio" name="arrendado" value="si" v-on:click="mos_arrendamiento" required>SI
+                                <input type="Radio" name="arrendado" value="no" v-on:click="mos_arrendamiento_x"  required>NO
+                            </div>
+                            <div v-if="mostrar_arr">
+                                <div class="form-group">
+                                    <label for="">¿Cuenta con contrato de arrendamiento?</label>
+                                    <input type="Radio" name="contrato_arrendamiento" value="si" required>SI
+                                    <input type="Radio" name="contrato_arrendamiento" value="no"  required>NO
+                                </div>
+                                <div class="form-group">
+                                    <label>Valor de Arrendamiento</label> 
+                                    <input type="text" class="form-control" placeholder="Direccion del Inmueble" v-model="direccion">
+                                </div>    
                             </div>
                             <div class="form-group">
-                                <label>Modelo</label> 
-                                <input type="text" class="form-control" placeholder="Modelo del equipo" v-model="modelo">
+                                <label>Numero de Matricula Inmobiliaria</label> 
+                                <input type="text" class="form-control" placeholder="" v-model="nro_matricula_inmobiliaria">
+                            </div>    
+                            <div class="form-group">
+                                <label>Dirección</label> 
+                                <input type="text" class="form-control" placeholder="Direccion del Inmueble" v-model="direccion">
+                            </div>    
+                        </div>
+
+                        <!-- AUTOMOVILES -->
+                        <div v-if="mostrar_aut">
+                            <div class="form-group">
+                                <label>Placa</label> 
+                                <input type="text" class="form-control" placeholder="Placa del Auto" v-model="placa">
+                            </div>
+                            <div class="form-group">
+                                <label>Tipo</label> 
+                                <input type="text" class="form-control" placeholder="Tipo del auto" v-model="tipo">
+                            </div>
+                            <div class="form-group">
+                                <label>Cilindros</label> 
+                                <input type="text" class="form-control" placeholder="Cantidad de cilindros del Auto" v-model="cilindros">
+                            </div>
+                            <div class="form-group">
+                                <label>Numero de Motor</label> 
+                                <input type="text" class="form-control" placeholder="Numero de Motor" v-model="nro_motor">
+                            </div>
+                            <div class="form-group">
+                                <label>Kilometraje</label> 
+                                <input type="text" class="form-control" placeholder="Kilometraje del Auto" v-model="kilometraje">
+                            </div>
+                            <div class="form-group">
+                                <label>Clase</label> 
+                                <input type="text" class="form-control" placeholder="Clase de Auto" v-model="clase">
+                            </div>
+                            <div class="form-group">
+                                <label for="">¿El auto está asegurado?</label>
+                                <input type="Radio" name="asegurado" value="si" required >SI 
+                                <input type="Radio" name="asegurado" value="no" required>NO
                             </div>
                         </div>
                         
+                        <!-- TEXTOS -->
                         <div v-if="mostrar_tex">                            
                             <div class="form-group">
+                                <label for="">Tipo de Texto: </label>
                                 <input type="Radio" name="tipo_libro" value="revista" required >Revista 
                                 <input type="Radio" name="tipo_libro" value="tesis" required>Tesis
                                 <input type="Radio" name="tipo_libro" value="libro" required>Libro
@@ -195,6 +275,44 @@
                                 <input type="text" class="form-control" placeholder="Titulo del Texto" v-model="titulo">
                             </div>
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="">Condicion</label>
+                            <input type="Radio" name="condicion" value="nuevo" required>Nuevo
+                            <input type="Radio" name="condicion" value="malogrado" required>Malogrado
+                            <input type="Radio" name="condicion" value="mantenimiento"  required>Mantenimiento
+                        </div>
+                        <div class="form-group">
+                            <label for="">Estado</label>
+                            <input type="Radio" name="estado" value="en_uso" required>En Uso
+                            <input type="Radio" name="estado" value="desuso" required>Desuso
+                            <input type="Radio" name="estado" value="prestamo"  required>Prestamo
+                            <input type="Radio" name="estado" value="almacenado" required>Almacenado
+                            <div v-if="mostrar_soft"><input type="Radio" name="estado" value="vencido" >Vencido</div>
+                            <div  v-if="mostrar_inm"><input type="Radio" name="estado" value="ocupado_por_terceros" >Ocupado por Terceros </div>
+                            <input type="Radio" name="estado" value="venta" required>Venta
+                        </div>
+                        <div class="form-group">
+                            <label>Observaciones</label>
+                            <input type="text" class="form-control" placeholder="Observaciones" v-model="observaciones">
+                        </div>
+                        <div class="form-group" v-if="mostrar_aut||mostrar_soft||mostrar_mob||mostrar_eq">
+                            <label>Observaciones</label>
+                            <input type="text" class="form-control" placeholder="Observaciones" v-model="observaciones">
+                        </div>
+                        <div class="form-group">
+                            <label for="">¿Cuenta con Garantia?</label>
+                            <input type="Radio" name="garantia" value="si" v-on:click="mos_garantia" required>SI
+                            <input type="Radio" name="garantia" value="no" v-on:click="mos_garantia_x" required>NO
+                        </div>
+                        <div v-if="mostrar_gar">
+                            <div class="form-group">
+                                <label>Tipo de Garantia</label>
+                                <input type="text" class="form-control" placeholder="" v-model="tipo_garantia">
+                            </div>
+                        </div>
+
+                        <!-- añadir proveedor -->
 
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </form>
@@ -216,6 +334,10 @@
 
                 mostrar_pc: false,
                 mostrar_otro_equipo:false,
+
+                mostrar_arr: false,
+
+                mostrar_gar:false,
 
                 mostrar_eq: false,
                 mostrar_mob: false,
@@ -240,6 +362,18 @@
                 .catch(function(err){
                     console.log(err) //error
                 })
+            },
+            mos_garantia(){
+                this.mostrar_gar=true;
+            },
+            mos_arrendamiento(){
+                this.mostrar_arr=true;
+            },
+            mos_garantia_x(){
+                this.mostrar_gar=false;
+            },
+            mos_arrendamiento_x(){
+                this.mostrar_arr=false;
             },
             mos_compra(){
                 this.mostrar_com=true;
