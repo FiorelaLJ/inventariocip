@@ -11,34 +11,58 @@
                 <div class="modal-body">
                     <form @submit.prevent="saveAsset">
                         <div class="form-group">
-                            <label>Nombre</label>
-                            <input type="text" class="form-control" placeholder="Ingrese el nombre del bien" v-model="name">
-                        </div>
-                        <div class="form-group">
-                            <label>Descripcion General</label>
-                            <input type="text" class="form-control" placeholder="Describa el producto" v-model="descripcion">
-                        </div>
-                        <div class="form-group">
-                            <input type="Radio" name="comprobante" value="factura" required>Factura
-                            <input type="Radio" name="comprobante" value="boleta" required>Boleta
-                            <input type="Radio" name="comprobante" value="nota de venta" required>Nota de Venta 
-                            <input type="Radio" name="comprobante" value="documento" required>Documento
-                            <input type="Radio" name="comprobante" value="otro" required>Otro
-                        </div>
-                        <div class="form-group">
-                                <label>Numero de Comprobante</label> 
-                                <input type="text" class="form-control" placeholder="Digite el numero de comprobante" v-model="nro_comprobante">
-                        </div>
-
-                        <div class="form-group">
                                 <input type="Radio" name="categoria" value="equipamiento" v-on:click="mos_equipamiento" required >Equipo 
                                 <input type="Radio" name="categoria" value="mobiliario" v-on:click="mos_mobiliario" required>Mobiliario
                                 <input type="Radio" name="categoria" value="software" v-on:click="mos_software" required>Software
                                 <input type="Radio" name="categoria" value="inmueble" v-on:click="mos_inmueble" required>Inmueble 
                                 <input type="Radio" name="categoria" value="automovil" v-on:click="mos_automovil" required>Automovil
                                 <input type="Radio" name="categoria" value="texto" v-on:click="mos_texto" required>Texto
-
                         </div>
+                        <div class="form-group">
+                            <label>Descripcion General</label>
+                            <input type="text" class="form-control" placeholder="Describa el producto" v-model="descripcion">
+                        </div>
+                        <!-- <div class="form-group">
+                            <label>Fecha de Adquisicion</label>
+                            <input type="text" class="form-control" data-provide="datepicker"  v-model="fecha_adquision">
+                        </div> -->
+                        <div class="form-group">
+                            <input type="Radio" name="tipo_adquisicion" value="compra" v-on:click="mos_compra" required>Compra
+                            <input type="Radio" name="tipo_adquisicion" value="donacion" v-on:click="mos_donacion" required>Donacion
+                            <input type="Radio" name="tipo_adquisicion" value="traspaso" v-on:click="mos_donacion"  required>Traspaso 
+                            <input type="Radio" name="tipo_adquisicion" value="otro" v-on:click="mos_donacion"  required>Otro
+                        </div>
+                        <div v-if="mostrar_com">
+                            <div class="form-group">
+                                <input type="Radio" name="comprobante" value="factura" required>Factura
+                                <input type="Radio" name="comprobante" value="boleta" required>Boleta
+                                <input type="Radio" name="comprobante" value="nota de venta" required>Nota de Venta 
+                                <input type="Radio" name="comprobante" value="documento" required>Documento
+                                <input type="Radio" name="comprobante" value="otro" required>Otro
+                            </div>                            
+                            <div class="form-group">
+                                    <label>Numero de Comprobante</label> 
+                                    <input type="text" class="form-control" placeholder="Digite el numero de comprobante" v-model="nro_comprobante">
+                            </div>
+                            <div class="form-group">
+                                    <label>Precio de Adquisicion</label> 
+                                    <input type="text" class="form-control" placeholder="Digite el precio de adquisicion" v-model="precio_adquisicion">
+                            </div>
+                        </div>
+
+                        <div v-if="mostrar_don">
+                            <div class="form-group">
+                                <label>Numero de documento de Adquisicion</label>
+                                <input type="text" class="form-control" placeholder="Ingrese el numero del documento de adquisicion" v-model="nro_doc_adquisicion">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Cantidad de Adquisiciones</label>
+                            <input type="text" class="form-control" placeholder="Ingrese el total de adquisiciones" v-model="total_adquisiciones">
+                        </div>
+
+                        <!-- EQUIPOS -->
                         
                         <div v-if="mostrar_eq">
                             <div class="form-group">
@@ -48,6 +72,46 @@
                             <div class="form-group">
                                 <label>Modelo</label> 
                                 <input type="text" class="form-control" placeholder="Modelo del equipo" v-model="modelo">
+                            </div>
+                            <div class="form-group">
+                                <label>Numero de Serie</label> 
+                                <input type="text" class="form-control" placeholder="Numero de Serie del equipo" v-model="nro_serie">
+                            </div>
+                            <div class="form-group">
+                                <label>Vida Util</label> 
+                                <input type="text" class="form-control" placeholder="Vida Util del equipo" v-model="vida_util">
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="Radio" name="tipo_equipo" value="pc_fija" v-on:click="mos_pc" required>PC-fija
+                                <input type="Radio" name="tipo_equipo" value="otro" v-on:click="mos_otro_equipo"  required>Otro
+                            </div>
+                            <div v-if="mostrar_pc">
+                                <div class="form-group">
+                                    <label>Memoria RAM</label>
+                                    <input type="text" class="form-control" placeholder="Ingrese la cantidad de memoria RAM" v-model="memoria_ram">
+                                </div>
+                                <div class="form-group">
+                                    <label>Procesador</label>
+                                    <input type="text" class="form-control" placeholder="Ingrese el procesasor" v-model="procesador">
+                                </div>
+                                <div class="form-group">
+                                    <label>Disco Duro</label>
+                                    <input type="text" class="form-control" placeholder="Ingrese la cantidad de disco duro y su tipo" v-model="disoc_duro">
+                                </div>
+                                <div class="form-group">
+                                    <label>Velocidad</label>
+                                    <input type="text" class="form-control" placeholder="Ingrese la velocidad" v-model="velocidad">
+                                </div>
+                            </div>
+                            <!-- Continuar -->
+                            <div class="form-group">
+                                <label>Color</label> 
+                                <input type="text" class="form-control" placeholder="Color del equipo" v-model="color">
+                            </div>
+                            <div class="form-group">
+                                <label>Material</label> 
+                                <input type="text" class="form-control" placeholder="Material del equipo" v-model="material">
                             </div>
                         </div>
 
@@ -146,7 +210,13 @@
             return{
                 name: null,
                 descripcion: null,
-                muestra:null,
+
+                mostrar_com: false,
+                mostrar_don:false,
+
+                mostrar_pc: false,
+                mostrar_otro_equipo:false,
+
                 mostrar_eq: false,
                 mostrar_mob: false,
                 mostrar_soft: false,
@@ -170,6 +240,22 @@
                 .catch(function(err){
                     console.log(err) //error
                 })
+            },
+            mos_compra(){
+                this.mostrar_com=true;
+                this.mostrar_don= false;
+            },
+            mos_donacion(){
+                this.mostrar_com=false;
+                this.mostrar_don= true;
+            },
+            mos_pc(){
+                this.mostrar_pc=true;
+                this.mostrar_otro_equipo= false;
+            },
+            mos_otro_equipo(){
+                this.mostrar_pc=false;
+                this.mostrar_otro_equipo= true;
             },
             mos_equipamiento(){
                 this.mostrar_eq=true;

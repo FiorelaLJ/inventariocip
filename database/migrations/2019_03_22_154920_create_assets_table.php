@@ -22,7 +22,7 @@ class CreateAssetsTable extends Migration
             // $table->string('nombre');
             $table->enum('categoria',array('equipamiento','mobiliario','software','inmueble','automovil','texto'));
             $table->string('descripcion_general');
-            $table->string('fecha_adquisicion');
+            $table->date('fecha_adquisicion');
             $table->enum('tipo_adquisicion',array('compra','donacion','traspaso','otro'));
             $table->string('total_adquisiciones');
             
@@ -66,7 +66,7 @@ class CreateAssetsTable extends Migration
 
             //Software
             $table->string('nombre_programa');
-            $table->string('fecha_instalacion');
+            $table->date('fecha_instalacion');
             $table->string('tipo_software');
             $table->string('tipo_licencia');
             $table->string('total_instaladas');
