@@ -12,9 +12,13 @@ class LocationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if($request->ajax()){
+            $providers = Location::all(); //Informacion almacenada de los proveedores
+            return response()->json($locations, 200);
+        }
+        return view('locations.list');
     }
 
     /**
@@ -35,7 +39,18 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->ajax()){ //almacenando un proveedor
+            $location = new Location();
+            $location->name = $request->input('name');
+            $location->direccion_local = $request->input('direccion_local');
+            $location->descripcion=$request->input('descripcion');
+            $location->save();
+
+            return response()->json([ //respuesta http satisfactoria 
+                "message"=>"Ubicacion creada correctamente.",
+                "location" => $location //key para decir lo que se almaceno  
+            ], 200);
+        }
     }
 
     /**

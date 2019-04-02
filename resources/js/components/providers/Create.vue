@@ -28,7 +28,7 @@
                         </div>
                         <div class="form-group">
                             <label>Correo</label>
-                            <input type="text" class="form-control" placeholder="Ingrese el correo del proveedor" v-model="correo">
+                            <input type="text" class="form-control" placeholder="Ingrese el correo del proveedor" v-model="email">
                         </div>
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </form>
@@ -48,17 +48,22 @@
                 ruc: null,
                 direccion: null,
                 telefono: null,
-                correo: null
+                email: null
             }
         },
         methods: {
             saveProvider: function(){
+                // console.log(this.razon_social)
+                // console.log(this.ruc)
+                // console.log(this.direccion)
+                // console.log(this.telefono)
+                // console.log(this.correo)
                 axios.post('/providers',{//peticion http mediante promesas
                     razon_social: this.razon_social,
                     ruc: this.ruc,
                     direccion: this.direccion,
                     telefono: this.telefono,
-                    correo: this.telefono
+                    email: this.email
                 })
                 .then(function(res){
                     console.log(res)
@@ -68,7 +73,7 @@
                 })
                 .catch(function(err){
                     console.log(err) //error
-                })
+                });
             }
         }
     }

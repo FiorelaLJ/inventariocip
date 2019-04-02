@@ -4,6 +4,7 @@ namespace InventarioCIP\Http\Controllers;
 
 use InventarioCIP\Provider;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class ProviderController extends Controller
 {

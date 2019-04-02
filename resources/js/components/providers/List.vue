@@ -5,8 +5,13 @@
             <div class="card text-center" style="width: 18rem; margin-top: 70px; margin-left: 70px">
             
             <div class="card-body">
-                <h5 class="card-title">{{provider.name}}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h4 class="card-title">{{provider.razon_social}}</h4>
+                <p class="card-text">
+                    <p>{{provider.ruc}}</p>
+                    <p>{{provider.direccion}}</p>
+                    <p>{{provider.telefono}}</p>
+                    <p>{{provider.email}}</p>
+                </p>
                 <a href="/providers/" class="btn btn-primary">Ver más</a>
             </div>
             </div>

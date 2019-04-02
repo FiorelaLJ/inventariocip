@@ -27,6 +27,9 @@ Vue.component('create-form-provider', require('./components/providers/Create.vue
 Vue.component('list-assets', require('./components/assets/List.vue').default);
 Vue.component('modal-btn-asset', require('./components/assets/ModalBtn.vue').default);
 Vue.component('create-form-asset', require('./components/assets/Create.vue').default);
+Vue.component('list-locations', require('./components/locations/List.vue').default);
+Vue.component('modal-btn-location', require('./components/locations/ModalBtn.vue').default);
+Vue.component('create-form-location', require('./components/locations/Create.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
