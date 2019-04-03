@@ -2090,8 +2090,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      name: null,
-      descripcion: null,
+      // caracteristicas
+      imagen: null,
+      categoria: null,
+      // imagen: null,
+      // descripcion: null,
+      // descripcion: null,
+      // imagen: null,
+      // descripcion: null,
+      // descripcion: null,
+      // imagen: null,
+      // descripcion: null,
+      // descripcion: null,
+      // imagen: null,
+      // descripcion: null,
+      // otros
       mostrar_com: false,
       mostrar_don: false,
       mostrar_pc: false,
@@ -2109,9 +2122,63 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     saveAsset: function saveAsset() {
       axios.post('/assets', {
-        name: this.name,
-        descripcion: this.descripcion,
-        muestra: this.muestra
+        imagen: this.imagen,
+        categoria: this.categoria,
+        descripcion_general: this.descripcion_general,
+        fecha_adquisicion: this.fecha_adquisicion,
+        tipo_adquisicion: this.tipo_adquisicion,
+        total_adquisiciones: this.total_adquisiciones,
+        comprobante: this.comprobante,
+        nro_comprobante: this.nro_comprobante,
+        precio_adquisicion: this.precio_adquisicion,
+        nro_doc_adquisicion: this.nro_doc_adquisicion,
+        marca: this.marca,
+        modelo: this.modelo,
+        nro_serie: this.nro_serie,
+        tipo_equipo: this.tipo_equipo,
+        vida_util: this.vida_util,
+        otro_equipo: this.otro_equipo,
+        detalles_equipo: this.detalles_equipo,
+        memoria_ram: this.memoria_ram,
+        procesador: this.procesador,
+        disco_duro: this.disco_duro,
+        velocidad: this.velocidad,
+        color: this.color,
+        material: this.material,
+        placa: this.placa,
+        tipo: this.tipo,
+        cilindros: this.cilindros,
+        nro_motor: this.nro_motor,
+        kilometraje: this.kilometraje,
+        clase: this.clase,
+        asegurado: this.asegurado,
+        nombre_programa: this.nombre_programa,
+        fecha_instalacion: this.fecha_instalacion,
+        tipo_software: this.tipo_software,
+        tipo_licencia: this.tipo_licencia,
+        total_instaladas: this.total_instaladas,
+        product_key: this.product_key,
+        nro_escritura: this.nro_escritura,
+        nombre_propietario: this.nombre_propietario,
+        valor_libros: this.valor_libros,
+        avaluo_catastral: this.avaluo_catastral,
+        depreciacion: this.depreciacion,
+        valorizacion: this.valorizacion,
+        arrendado: this.arrendado,
+        contrato_arrendadamiento: this.contrato_arrendadamiento,
+        valor_arrendamiento: this.valor_arrendamiento,
+        nro_matricula_inmobiliaria: this.nro_matricula_inmobiliaria,
+        direccion: this.direccion,
+        tipo_mobiliario: this.tipo_mobiliario,
+        tipo_libro: this.tipo_libro,
+        autor: this.autor,
+        titulo: this.titulo,
+        condicion: this.condicion,
+        estado: this.estado,
+        observaciones: this.observaciones,
+        garantia: this.garantia,
+        tipo_garantia: this.tipo_garantia,
+        proveedor_id: this.proveedor_id
       }).then(function (res) {
         console.log(res);
         $('#addAsset').modal('hide');
@@ -40300,24 +40367,11 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title" }, [
-                  _vm._v(_vm._s(asset.name))
-                ]),
+                _c("h5", { staticClass: "card-title" }, [_vm._v("zc")]),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
-                  _vm._v(
-                    "Some quick example text to build on the card title and make up the bulk of the card's content."
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-primary",
-                    attrs: { href: "/assets/" }
-                  },
-                  [_vm._v("Ver más")]
-                )
+                  _vm._v(_vm._s(asset.descripcion_general))
+                ])
               ])
             ]
           )
@@ -40940,16 +40994,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("p", [_vm._v(_vm._s(provider.email))]),
                 _vm._v(" "),
-                _c("p"),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-primary",
-                    attrs: { href: "/providers/" }
-                  },
-                  [_vm._v("Ver más")]
-                )
+                _c("p")
               ])
             ]
           )

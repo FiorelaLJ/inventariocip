@@ -12,7 +12,7 @@
                     <p>{{provider.telefono}}</p>
                     <p>{{provider.email}}</p>
                 </p>
-                <a href="/providers/" class="btn btn-primary">Ver más</a>
+                <!-- <a href="/providers/" class="btn btn-primary">Ver más</a> -->
             </div>
             </div>
         </div>
