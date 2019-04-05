@@ -3,7 +3,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar Ubicacion</h5>
+                    <h5 class="modal-title" id="ModalLocation">Agregar Ubicacion</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -12,11 +12,11 @@
                     <form @submit.prevent="saveLocation">
                         <div class="form-group">
                             <label>Nombre</label>
-                            <input type="text" class="form-control" placeholder="Ingrese el nombre de la oficina" v-model="name">
+                            <input type="text" class="form-control" placeholder="Ingrese el nombre de la oficina" v-model="nombre">
                         </div>
                         <div class="form-group">
                             <label>Dirección o Piso</label>
-                            <input type="text" class="form-control" placeholder="Ingrese la direccion o el piso en el que se encuentra la ubicacion " v-model="ruc">
+                            <input type="text" class="form-control" placeholder="Ingrese la direccion o el piso en el que se encuentra la ubicacion " v-model="direccion_local">
                         </div>
                         <div class="form-group">
                             <label>Descripción</label>
@@ -42,7 +42,10 @@
             }
         },
         methods: {
-            saveProvider: function(){
+            saveLocation: function(){
+                // console.log(this.nombre)
+                // console.log(this.direccion_local)
+                // console.log(this.descripcion)
                 axios.post('/locations',{//peticion http mediante promesas
                     nombre: this.nombre,
                     direccion_local: this.direccion_local,
@@ -55,7 +58,7 @@
                 })
                 .catch(function(err){
                     console.log(err) //error
-                })
+                });
             }
         }
     }

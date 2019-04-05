@@ -2093,17 +2093,60 @@ __webpack_require__.r(__webpack_exports__);
       // caracteristicas
       imagen: null,
       categoria: null,
-      // imagen: null,
-      // descripcion: null,
-      // descripcion: null,
-      // imagen: null,
-      // descripcion: null,
-      // descripcion: null,
-      // imagen: null,
-      // descripcion: null,
-      // descripcion: null,
-      // imagen: null,
-      // descripcion: null,
+      descripcion_general: null,
+      fecha_adquisicion: null,
+      tipo_adquisicion: null,
+      total_adquisiciones: null,
+      comprobante: null,
+      nro_comprobante: null,
+      precio_adquisicion: null,
+      nro_doc_adquisicion: null,
+      marca: null,
+      modelo: null,
+      nro_serie: null,
+      tipo_equipo: null,
+      vida_util: null,
+      otro_equipo: null,
+      detalles_equipo: null,
+      memoria_ram: null,
+      procesador: null,
+      disco_duro: null,
+      velocidad: null,
+      color: null,
+      material: null,
+      placa: null,
+      tipo: null,
+      cilindros: null,
+      kilometraje: null,
+      clase: null,
+      asegurado: null,
+      nombre_programa: null,
+      fecha_instalacion: null,
+      tipo_software: null,
+      tipo_licencia: null,
+      total_instaladas: null,
+      version: null,
+      product_key: null,
+      nro_escritura: null,
+      nombre_propietario: null,
+      valor_libros: null,
+      avaluo_catastral: null,
+      depreciacion: null,
+      valorizacion: null,
+      arrendado: null,
+      contrato_arrendadamiento: null,
+      valor_arrendamiento: null,
+      nro_matricula_inmobiliaria: null,
+      direccion: null,
+      tipo_mobiliario: null,
+      tipo_libro: null,
+      autor: null,
+      titulo: null,
+      condicion: null,
+      observaciones: null,
+      garantia: null,
+      tipo_garantia: null,
+      proveedor_id: null,
       // otros
       mostrar_com: false,
       mostrar_don: false,
@@ -2383,7 +2426,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    saveProvider: function saveProvider() {
+    saveLocation: function saveLocation() {
+      // console.log(this.nombre)
+      // console.log(this.direccion_local)
+      // console.log(this.descripcion)
       axios.post('/locations', {
         //peticion http mediante promesas
         nombre: this.nombre,
@@ -38575,8 +38621,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.descripcion,
-                        expression: "descripcion"
+                        value: _vm.descripcion_general,
+                        expression: "descripcion_general"
                       }
                     ],
                     staticClass: "form-control",
@@ -38584,13 +38630,13 @@ var render = function() {
                       type: "text",
                       placeholder: "Describa el producto"
                     },
-                    domProps: { value: _vm.descripcion },
+                    domProps: { value: _vm.descripcion_general },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.descripcion = $event.target.value
+                        _vm.descripcion_general = $event.target.value
                       }
                     }
                   })
@@ -40115,11 +40161,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Agregar Bien")]
-      ),
+      _c("h5", { staticClass: "modal-title", attrs: { id: "ModalAssets" } }, [
+        _vm._v("Agregar Bien")
+      ]),
       _vm._v(" "),
       _c(
         "button",
@@ -40469,8 +40513,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.name,
-                        expression: "name"
+                        value: _vm.nombre,
+                        expression: "nombre"
                       }
                     ],
                     staticClass: "form-control",
@@ -40478,13 +40522,13 @@ var render = function() {
                       type: "text",
                       placeholder: "Ingrese el nombre de la oficina"
                     },
-                    domProps: { value: _vm.name },
+                    domProps: { value: _vm.nombre },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.name = $event.target.value
+                        _vm.nombre = $event.target.value
                       }
                     }
                   })
@@ -40498,8 +40542,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.ruc,
-                        expression: "ruc"
+                        value: _vm.direccion_local,
+                        expression: "direccion_local"
                       }
                     ],
                     staticClass: "form-control",
@@ -40508,13 +40552,13 @@ var render = function() {
                       placeholder:
                         "Ingrese la direccion o el piso en el que se encuentra la ubicacion "
                     },
-                    domProps: { value: _vm.ruc },
+                    domProps: { value: _vm.direccion_local },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.ruc = $event.target.value
+                        _vm.direccion_local = $event.target.value
                       }
                     }
                   })
@@ -40568,11 +40612,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Agregar Ubicacion")]
-      ),
+      _c("h5", { staticClass: "modal-title", attrs: { id: "ModalLocation" } }, [
+        _vm._v("Agregar Ubicacion")
+      ]),
       _vm._v(" "),
       _c(
         "button",
@@ -40641,22 +40683,7 @@ var render = function() {
               _c("div", { staticClass: "card-body" }, [
                 _c("h5", { staticClass: "card-title" }, [
                   _vm._v(_vm._s(location.name))
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v(
-                    "Some quick example text to build on the card title and make up the bulk of the card's content."
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-primary",
-                    attrs: { href: "/locations/" }
-                  },
-                  [_vm._v("Ver más")]
-                )
+                ])
               ])
             ]
           )
@@ -40912,7 +40939,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        { staticClass: "modal-title", attrs: { id: "ModalProviders" } },
         [_vm._v("Agregar Proveedor")]
       ),
       _vm._v(" "),
@@ -40985,16 +41012,7 @@ var render = function() {
                   _vm._v(_vm._s(provider.razon_social))
                 ]),
                 _vm._v(" "),
-                _c("p", { staticClass: "card-text" }),
-                _c("p", [_vm._v(_vm._s(provider.ruc))]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(provider.direccion))]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(provider.telefono))]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(provider.email))]),
-                _vm._v(" "),
-                _c("p")
+                _c("p", { staticClass: "card-body" })
               ])
             ]
           )

@@ -6,11 +6,11 @@
             
             <div class="card-body">
                 <h4 class="card-title">{{provider.razon_social}}</h4>
-                <p class="card-text">
-                    <p>{{provider.ruc}}</p>
+                <p class="card-body">
+                    <!-- <p>{{provider.ruc}}</p>
                     <p>{{provider.direccion}}</p>
                     <p>{{provider.telefono}}</p>
-                    <p>{{provider.email}}</p>
+                    <p>{{provider.email}}</p> -->
                 </p>
                 <!-- <a href="/providers/" class="btn btn-primary">Ver más</a> -->
             </div>

@@ -3,7 +3,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar Bien</h5>
+                    <h5 class="modal-title" id="ModalAssets">Agregar Bien</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -21,7 +21,7 @@
                         </div>
                         <div class="form-group">
                             <label>Descripcion General</label>
-                            <input type="text" class="form-control" placeholder="Describa el producto" v-model="descripcion">
+                            <input type="text" class="form-control" placeholder="Describa el producto" v-model="descripcion_general">
                         </div>
                         <!-- <div class="form-group">
                             <label>Fecha de Adquisicion</label>
@@ -329,17 +329,60 @@
                 // caracteristicas
                 imagen: null,
                 categoria: null,
-                // imagen: null,
-                // descripcion: null,
-                // descripcion: null,
-                // imagen: null,
-                // descripcion: null,
-                // descripcion: null,
-                // imagen: null,
-                // descripcion: null,
-                // descripcion: null,
-                // imagen: null,
-                // descripcion: null,
+                descripcion_general: null,
+                fecha_adquisicion: null,
+                tipo_adquisicion: null,
+                total_adquisiciones: null,
+                comprobante: null,
+                nro_comprobante: null,
+                precio_adquisicion: null,
+                nro_doc_adquisicion: null,
+                marca: null,
+                modelo: null,
+                nro_serie: null,
+                tipo_equipo: null,
+                vida_util: null,
+                otro_equipo: null,
+                detalles_equipo: null,
+                memoria_ram: null,
+                procesador: null,
+                disco_duro: null,
+                velocidad: null,
+                color: null,
+                material: null,
+                placa: null,
+                tipo: null,
+                cilindros: null,
+                kilometraje: null,
+                clase: null,
+                asegurado: null,
+                nombre_programa: null,
+                fecha_instalacion: null,
+                tipo_software: null,
+                tipo_licencia: null,
+                total_instaladas: null,
+                version: null,
+                product_key: null,
+                nro_escritura: null,
+                nombre_propietario: null,
+                valor_libros: null,
+                avaluo_catastral: null,
+                depreciacion: null,
+                valorizacion: null,
+                arrendado: null,
+                contrato_arrendadamiento: null,
+                valor_arrendamiento: null,
+                nro_matricula_inmobiliaria: null,
+                direccion: null,
+                tipo_mobiliario: null,
+                tipo_libro: null,
+                autor: null,
+                titulo: null,
+                condicion: null,
+                observaciones: null,
+                garantia: null,
+                tipo_garantia: null,
+                proveedor_id: null,
 
                 // otros
                 mostrar_com: false,
@@ -429,7 +472,7 @@
                 })
                 .catch(function(err){
                     console.log(err) //error
-                })
+                });
             },
             mos_garantia(){
                 this.mostrar_gar=true;

@@ -4,6 +4,7 @@ namespace InventarioCIP\Http\Controllers;
 
 use InventarioCIP\Asset;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class AssetController extends Controller
 {
@@ -100,7 +101,8 @@ class AssetController extends Controller
             $asset->save();
 
             return response()->json([ //respuesta http satisfactoria 
-                "message"=>"Bien creado correctamente." 
+                "message"=>"Bien creado correctamente.",
+                "asset" => $asset 
             ], 200);
         }
     }
