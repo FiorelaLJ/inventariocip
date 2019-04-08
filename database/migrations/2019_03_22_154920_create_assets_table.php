@@ -17,91 +17,91 @@ class CreateAssetsTable extends Migration
             
             $table->bigIncrements('id');
 
-            $table->string('imagen');
+            $table->string('imagen')->nullable();
 
             // $table->string('nombre');
             $table->enum('categoria',array('equipamiento','mobiliario','software','inmueble','automovil','texto'));
             $table->string('descripcion_general');
-            $table->date('fecha_adquisicion');
+            $table->date('fecha_adquisicion')->nullable();
             $table->enum('tipo_adquisicion',array('compra','donacion','traspaso','otro'));
-            $table->string('total_adquisiciones');
+            $table->string('total_adquisiciones')->nullable();
             
             //si es compra:
-            $table->enum('comprobante',array('factura','boleta','nota de venta','documento','otro'));
-            $table->string('nro_comprobante');
-            $table->string('precio_adquisicion');
+            $table->enum('comprobante',array('factura','boleta','nota de venta','documento','otro'))->nullable();
+            $table->string('nro_comprobante')->nullable();
+            $table->string('precio_adquisicion')->nullable();
 
             //si es donacion o traspaso
-            $table->string('nro_doc_adquisicion');
+            $table->string('nro_doc_adquisicion')->nullable();
             
             //Equipos
-            $table->string('marca'); //para automoviles 
-            $table->string('modelo');
-            $table->string('nro_serie'); //para automoviles y software tambien
-            $table->enum('tipo_equipo',array('pc_fija','otro'));
-            $table->string('vida_util');
+            $table->string('marca')->nullable(); //para automoviles 
+            $table->string('modelo')->nullable();
+            $table->string('nro_serie')->nullable(); //para automoviles y software tambien
+            $table->enum('tipo_equipo',array('pc_fija','otro'))->nullable();
+            $table->string('vida_util')->nullable();
             //si es 'otro'
-            $table->string('otro_equipo');
-            $table->string('detalles_equipo');
+            $table->string('otro_equipo')->nullable();
+            $table->string('detalles_equipo')->nullable();
             //si es computadora
-            $table->string('memoria_ram');
-            $table->string('procesador');
-            $table->string('disco_duro');
-            $table->string('velocidad');
+            $table->string('memoria_ram')->nullable();
+            $table->string('procesador')->nullable();
+            $table->string('disco_duro')->nullable();
+            $table->string('velocidad')->nullable();
 
             //otras caracteristicas para equipo, mueble y automovil
-            $table->string('color');
-            $table->string('material');
+            $table->string('color')->nullable();
+            $table->string('material')->nullable();
             
             
             //Automoviles
-            $table->string('placa');
-            $table->string('tipo');
-            $table->string('cilindros');
-            $table->string('nro_motor');
-            $table->string('kilometraje');
+            $table->string('placa')->nullable();
+            $table->string('tipo')->nullable();
+            $table->string('cilindros')->nullable();
+            $table->string('nro_motor')->nullable();
+            $table->string('kilometraje')->nullable();
 
-            $table->string('clase');
-            $table->enum('asegurado',array('si','no'));
+            $table->string('clase')->nullable();
+            $table->enum('asegurado',array('si','no'))->nullable();
 
             //Software
-            $table->string('nombre_programa');
-            $table->date('fecha_instalacion');
-            $table->string('tipo_software');
-            $table->string('tipo_licencia');
-            $table->string('total_instaladas');
-            $table->string('version');
-            $table->string('product_key');
+            $table->string('nombre_programa')->nullable();
+            $table->date('fecha_instalacion')->nullable();
+            $table->string('tipo_software')->nullable();
+            $table->string('tipo_licencia')->nullable();
+            $table->string('total_instaladas')->nullable();
+            $table->string('version')->nullable();
+            $table->string('product_key')->nullable();
 
             //Inmuebles
-            $table->string('nro_escritura');
-            $table->string('nombre_propietario');
+            $table->string('nro_escritura')->nullable();
+            $table->string('nombre_propietario')->nullable();
 
-            $table->string('valor_libros');
-            $table->string('avaluo_catastral');
-            $table->string('depreciacion');
-            $table->string('valorizacion');
-            $table->enum('arrendado',array('si','no'));
-            $table->enum('contrato_arrendadamiento',array('si','no'));
-            $table->string('valor_arrendamiento');
+            $table->string('valor_libros')->nullable();
+            $table->string('avaluo_catastral')->nullable();
+            $table->string('depreciacion')->nullable();
+            $table->string('valorizacion')->nullable();
+            $table->enum('arrendado',array('si','no'))->nullable();
+            $table->enum('contrato_arrendadamiento',array('si','no'))->nullable();
+            $table->string('valor_arrendamiento')->nullable();
 
-            $table->string('nro_matricula_inmobiliaria');
-            $table->string('direccion');
+            $table->string('nro_matricula_inmobiliaria')->nullable();
+            $table->string('direccion')->nullable();
 
             //Mueble
-            $table->string('tipo_mobiliario');
+            $table->string('tipo_mobiliario')->nullable();
 
             //Libros
-            $table->enum('tipo_libro',array('revista','tesis','libro','otro'));
-            $table->string('autor');
-            $table->string('titulo');
+            $table->enum('tipo_libro',array('revista','tesis','libro','otro'))->nullable();
+            $table->string('autor')->nullable();
+            $table->string('titulo')->nullable();
             
             //para muebles,inmuebles,equipos,automoviles,software,textos
-            $table->enum('condicion',array('nuevo','malogrado','mantenimiento'));
-            $table->enum('estado',array('en_uso','desuso','prestamo','almacenado','vencido','venta','ocupado_por_terceros'));
-            $table->string('observaciones');
-            $table->enum('garantia',array('si','no'));
-            $table->string('tipo_garantia'); //excepto textos
+            $table->enum('condicion',array('nuevo','malogrado','mantenimiento'))->nullable();
+            $table->enum('estado',array('en_uso','desuso','prestamo','almacenado','vencido','venta','ocupado_por_terceros'))->nullable();
+            $table->string('observaciones')->nullable();
+            $table->enum('garantia',array('si','no'))->nullable();
+            $table->string('tipo_garantia')->nullable(); //excepto textos
 
             //proveedor foreing
             $table->bigInteger('proveedor_id')->unsigned();

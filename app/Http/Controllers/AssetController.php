@@ -78,7 +78,7 @@ class AssetController extends Controller
             $asset->total_instaladas= $request->input('total_instaladas');
             $asset->product_key = $request->input('product_key');
             $asset->nro_escritura= $request->input('nro_escritura');
-            $asset->nro_mnombre_propietariootor = $request->input('nombre_propietario');
+            $asset->nombre_propietario = $request->input('nombre_propietario');
             $asset->valor_libros= $request->input('valor_libros');
             $asset->avaluo_catastral = $request->input('avaluo_catastral');
             $asset->depreciacion= $request->input('depreciacion');

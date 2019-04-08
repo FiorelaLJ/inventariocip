@@ -40682,7 +40682,7 @@ var render = function() {
             [
               _c("div", { staticClass: "card-body" }, [
                 _c("h5", { staticClass: "card-title" }, [
-                  _vm._v(_vm._s(location.name))
+                  _vm._v(_vm._s(location.nombre))
                 ])
               ])
             ]

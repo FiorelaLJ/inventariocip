@@ -463,7 +463,6 @@
                     garantia: this.garantia,
                     tipo_garantia: this.tipo_garantia,
                     proveedor_id: this.proveedor_id
-                   
                 })
                 .then(function(res){
                     console.log(res)
