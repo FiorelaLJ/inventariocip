@@ -2415,7 +2415,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-// import { bus } from '../event-bus';
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     //atributos
@@ -2437,7 +2436,7 @@ __webpack_require__.r(__webpack_exports__);
         descripcion: this.descripcion
       }).then(function (res) {
         console.log(res);
-        $('#addLocations').modal('hide');
+        $('#addLocation').modal('hide');
         console.log(res.data.location);
       }).catch(function (err) {
         console.log(err); //error
@@ -2473,11 +2472,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //parte de logica
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       locations: [],
+      nombre: '',
+      direccion_local: '',
+      descripcion: '',
       loading: true
     };
   },
@@ -2629,10 +2653,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //parte de logica
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      razon_social: '',
+      ruc: '',
+      direccion: '',
+      telefono: '',
+      email: '',
       providers: [],
       loading: true
     };
@@ -2640,9 +2696,6 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    // console.log('Component mounted.') //sin usar axios
-    //usando axios:
-    // axios.get('').then(response => (this.providers = response.data))
     axios.get('').then(function (res) {
       //para cargar e,e 
       _this.providers = res.data;
@@ -40653,8 +40706,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
-    { staticClass: "row" },
+    "section",
+    { staticClass: "data" },
     [
       _c("spinner", {
         directives: [
@@ -40667,33 +40720,54 @@ var render = function() {
         ]
       }),
       _vm._v(" "),
-      _vm._l(_vm.locations, function(location) {
-        return _c("div", { key: location.id, staticClass: "col-sm" }, [
-          _c(
-            "div",
-            {
-              staticClass: "card text-center",
-              staticStyle: {
-                width: "18rem",
-                "margin-top": "70px",
-                "margin-left": "70px"
-              }
-            },
-            [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title" }, [
-                  _vm._v(_vm._s(location.nombre))
-                ])
-              ])
-            ]
-          )
-        ])
-      })
+      _c("h1", { staticClass: "text-center" }, [_vm._v("Ubicaciones")]),
+      _vm._v(" "),
+      _c("table", { staticClass: "table" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.locations, function(location) {
+            return _c("tr", { key: location.id }, [
+              _c("td", [_vm._v(_vm._s(location.nombre))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(location.direccion_local))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(location.descripcion))]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-toggle": "modal" }
+                },
+                [_vm._v("Editar")]
+              )
+            ])
+          }),
+          0
+        )
+      ])
     ],
-    2
+    1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Direccion")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Descripcion")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -40980,8 +41054,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
-    { staticClass: "row" },
+    "section",
+    { staticClass: "data" },
     [
       _c("spinner", {
         directives: [
@@ -40994,35 +41068,64 @@ var render = function() {
         ]
       }),
       _vm._v(" "),
-      _vm._l(_vm.providers, function(provider) {
-        return _c("div", { key: provider.id, staticClass: "col-sm" }, [
-          _c(
-            "div",
-            {
-              staticClass: "card text-center",
-              staticStyle: {
-                width: "18rem",
-                "margin-top": "70px",
-                "margin-left": "70px"
-              }
-            },
-            [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h4", { staticClass: "card-title" }, [
-                  _vm._v(_vm._s(provider.razon_social))
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-body" })
-              ])
-            ]
-          )
-        ])
-      })
+      _c("h1", { staticClass: "text-center" }, [_vm._v("Proveedores")]),
+      _vm._v(" "),
+      _c("table", { staticClass: "table" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.providers, function(provider) {
+            return _c("tr", { key: provider.id }, [
+              _c("td", [_vm._v(_vm._s(provider.razon_social))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(provider.ruc))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(provider.direccion))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(provider.telefono))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(provider.email))]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-toggle": "modal" }
+                },
+                [_vm._v("Editar")]
+              )
+            ])
+          }),
+          0
+        )
+      ])
     ],
-    2
+    1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Id")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Razon Social")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("RUC")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Direccion")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Telefono")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Correo")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -53253,6 +53356,7 @@ Vue.component('spinner', __webpack_require__(/*! ./components/widgets/Spinner.vu
 Vue.component('list-providers', __webpack_require__(/*! ./components/providers/List.vue */ "./resources/js/components/providers/List.vue").default);
 Vue.component('modal-btn-provider', __webpack_require__(/*! ./components/providers/ModalBtn.vue */ "./resources/js/components/providers/ModalBtn.vue").default);
 Vue.component('create-form-provider', __webpack_require__(/*! ./components/providers/Create.vue */ "./resources/js/components/providers/Create.vue").default);
+Vue.component('edit-form-provider', __webpack_require__(/*! ./components/providers/Edit.vue */ "./resources/js/components/providers/Edit.vue").default);
 Vue.component('list-assets', __webpack_require__(/*! ./components/assets/List.vue */ "./resources/js/components/assets/List.vue").default);
 Vue.component('modal-btn-asset', __webpack_require__(/*! ./components/assets/ModalBtn.vue */ "./resources/js/components/assets/ModalBtn.vue").default);
 Vue.component('create-form-asset', __webpack_require__(/*! ./components/assets/Create.vue */ "./resources/js/components/assets/Create.vue").default);
@@ -53845,6 +53949,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_1025bcf4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/providers/Edit.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/providers/Edit.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/providers/Edit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 

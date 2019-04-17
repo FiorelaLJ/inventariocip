@@ -31,7 +31,6 @@
 </template>
 
 <script>
-    // import { bus } from '../event-bus';
 
     export default {
         data(){ //atributos
@@ -53,7 +52,7 @@
                 })
                 .then(function(res){
                     console.log(res)
-                    $('#addLocations').modal('hide')
+                    $('#addLocation').modal('hide')
                     console.log(res.data.location)
                 })
                 .catch(function(err){

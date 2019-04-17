@@ -24,6 +24,7 @@ Vue.component('spinner', require('./components/widgets/Spinner.vue').default);
 Vue.component('list-providers', require('./components/providers/List.vue').default);
 Vue.component('modal-btn-provider', require('./components/providers/ModalBtn.vue').default);
 Vue.component('create-form-provider', require('./components/providers/Create.vue').default);
+Vue.component('edit-form-provider', require('./components/providers/Edit.vue').default);
 Vue.component('list-assets', require('./components/assets/List.vue').default);
 Vue.component('modal-btn-asset', require('./components/assets/ModalBtn.vue').default);
 Vue.component('create-form-asset', require('./components/assets/Create.vue').default);

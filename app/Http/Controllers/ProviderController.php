@@ -20,6 +20,7 @@ class ProviderController extends Controller
             return response()->json($providers, 200);
         }
         return view('providers.list');
+
     }
 
     /**
