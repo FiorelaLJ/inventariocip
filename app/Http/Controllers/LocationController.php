@@ -45,6 +45,7 @@ class LocationController extends Controller
             $location->nombre = $request->input('nombre');
             $location->direccion_local = $request->input('direccion_local');
             $location->descripcion=$request->input('descripcion');
+            
             $location->save();
 
             return response()->json([ //respuesta http satisfactoria 
