@@ -1,4 +1,4 @@
-<template>
+<template> 
     <div class="modal fade" id="editLocation" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -12,11 +12,12 @@
                     <form @submit.prevent="saveEditLocation">
                         <div class="form-group">
                             <label>Nombre</label>
-                            <input type="text" class="form-control" placeholder="Ingrese el nombre de la oficina" v-model="nombre">
+                            <input type="text" class="form-control" placeholder="" v-model="nombre">
                         </div>
                         <div class="form-group">
                             <label>Dirección o Piso</label>
-                            <input type="text" class="form-control" placeholder="Ingrese la direccion o el piso en el que se encuentra la ubicacion " v-model="direccion_local">
+                            <input type="text" 
+                            class="form-control" placeholder="" v-model="direccion_local">
                         </div>
                         <div class="form-group">
                             <label>Descripción</label>
@@ -31,7 +32,6 @@
 </template>
 
 <script>
-
     export default {
         data(){ //atributos
             return{
